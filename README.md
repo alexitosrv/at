@@ -13,9 +13,7 @@ what standard library functions and objects are available
 
 in java,
 
-in C, 
+in C, C++
 
-in C++
-
-in python
+in python 3.5
 
