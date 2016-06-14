@@ -8,12 +8,12 @@ public class IQ_05_8_reverse {
 		
 		int n = Integer.parseInt(System.console().readLine());
 
-		System.out.println("reversed number:\n" + reverse_number(n));
+		System.out.println("reversed number:\n" + reverseNumber(n));
 		
 	}
 	
 	
-	public static int reverse_number(int n){
+	public static int reverseNumber(int n){
 		
 		boolean isNegative = n<0;
 		
