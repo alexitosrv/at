@@ -9,8 +9,12 @@ def reduce(x, y):
 	return [min(a, b, c, d), max(a,b,c,d)]
 
 def overlap(x, y):
-	a, b = min(x, y)
-	c, d = max(x, y)
+	a = min(x[0], x[1])
+	b = max(x[0], x[1])
+	
+	c = min(y[0], y[1])
+	d = max(y[0], y[1])
+	
 	return c < b
 
 def overlapable(intervs):
@@ -64,7 +68,7 @@ t = [[1, 3], [3, 6]]
 #t = [[1, 3], [6, 8]]
 #t = [[10, 14], [4, 18], [19, 20], [19, 20], [13, 20]]	
 
-#print(overlap([1,8],[4,9]))
+#print(overlap([1,200],[4,9]))
 #print(reduce([4,18],[10,20]))
 #
 #  4
@@ -73,4 +77,4 @@ t = [[1, 3], [3, 6]]
 #  4      9
 #      -
 #	  8
-print(answer(t))
+#print(answer(t))
