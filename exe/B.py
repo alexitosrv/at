@@ -18,10 +18,9 @@ def overlap(x, y):
 	return c < b
 
 def overlapable(intervs):
-	for i in range(len(intervs)):
-		for j in range(i+1,len(intervs)):
-			if overlap(intervs[i], intervs[j]):
-				return True
+	for i in range(len(intervs)-1):
+		if overlap(intervs[i], intervs[i+1]):
+			return True
 				
 	return False
 			
@@ -31,50 +30,50 @@ def answer(intervals):
 	for i in intervals:
 		if i not in interv:
 			interv.append(i)
-
 	
-	while (overlapable(interv)):
-		r = list()
-		n = len(interv)
-		#print("interv y n= ", interv, n)
-		for i in range(n):
-			t = interv[i]
-			for j in range(i+1,n):
-				u = interv[j]
-				if (overlap(t, u)):
-					v = reduce(t, u)
-					if v not in r:
-						r.append(v)
-				else:
-					if u not in r:
-						r.append(u)
+	interv.sort()
+	
+	#while (overlapable(interv)):
 
-		s = list()
-		for i in r:
-			if i not in s:
-				s.append(i)
+	n = len(interv)
+	print("interv y n= ", interv, n)
+	i = 0
+	while i < n:
+		j = i+1
+		while j < n:
+			t = interv[i]
+			u = interv[j]
+			#print("interv y n= ", interv, n)
+			print('procesando t y u', t, u)
+			if (overlap(t, u)):
+				print('hay overlap')
+				v = reduce(t, u)
+				print('v es', v)
 				
-		r = s
-		interv = r
-		
-	#print(interv)
+				if t in interv:
+					interv.remove(t)
+					n = n - 1
+				if u in interv:
+					interv.remove(u)
+					n = n - 1
+				if v not in interv:
+					interv.insert(0,v)
+					n = n + 1
+					#print("interv y n= ", interv, n)
+			else:
+				j = j+1
+		i =i +1
+
 	s = 0
 	for i in interv:
 		s = s + i[1] - i[0]
 	return s
 		
 #t = [[1, 2]]
-t = [[1, 3], [3, 6]]
+#t = [[1, 3], [3, 6]]
 #t = [[1, 3], [6, 8]]
 #t = [[10, 14], [4, 18], [19, 20], [19, 20], [13, 20]]	
 
 #print(overlap([1,200],[4,9]))
 #print(reduce([4,18],[10,20]))
-#
-#  4
-#  -
-#1   5
-#  4      9
-#      -
-#	  8
-#print(answer(t))
+print(answer(t))
