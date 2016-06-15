@@ -1,0 +1,8 @@
+python filename.py
+
+gcc -std=c99 filename.c
+a.exe
+
+
+javac filename.java
+java filename

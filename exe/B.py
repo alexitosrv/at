@@ -1,135 +1,26 @@
 
-def reduce_when_disjoint(x, y):
+def reduce(x, y):
 	a = x[0]
 	b = x[1]
 	
 	c = y[0]
 	d = y[1]
-	
-	#1,3
-	#    6,8
-		 
-	#1,3+8-6
-	return [a,b+d-c]
 
-#def calculate_new_non_overlapping_intervals(x, y):
-def reduce_overlapping_intervals(x, y):
-	a = x[0]
-	b = x[1]
-	
-	c = y[0]
-	d = y[1]
-	
-	if (a == c and b == d):
-		return [0, 0]
-		
-	if (c == 0 and d == 0):
-		return [a, b]
-
-	if (a == 0 and b == 0):
-		return [c, d]
-	
-	if (a > c):
-		if (a < d):
-			a_ = c
-			if (b > d):
-				d_ = b
-			else:
-				d_ = d
-			return [a_, d_]
-	
-	if (b > c):
-		if (a < c):
-			a_ = a
-			if (b > d):
-				d_ = b
-			else:
-				d_ = d
-			return [a_, d_]
-		else:
-			a_ = c
-			if (b > d):
-				d_ = b
-			else:
-				d_ = d
-			return [a_, d_]
-	
-	if (b > d):
-		if (a < c):
-			a_ = a
-		else:
-			a_ = c
-		if (b > d):
-			d_ = b
-		else:
-			d_ = d
-		return [a_, d_]
-	
-		
-	if (c > a):
-		a_ = a
-		if (b > d):
-			d_ = b
-		else:
-			d_ = d
-		return [a_, d_]
-			
-	if (d > a):
-		if (c > a):
-			a_ = a
-			if (b > d):
-				d_ = b
-			else:
-				d_ = d
-			return [a_, d_]
-		else:
-			a_ = c
-			if (b > d):
-				d_ = b
-			else:
-				d_ = d			
-			return [a_, d_]
-			
-	if (d > b):
-		if (a < c):
-			a_ = a
-			d_ = d
-			return [a_, d_]
-		
-	if (a == c):
-		a_ = a
-		if (b > d):
-			d_ = b
-			return [a_, d_]
-		else:
-			d_ = d
-			return [a_, d_]
-	
-	if (b == d):
-		if (a < c):
-			a_ = a
-			d_ = d
-			return [a_, d_]
-		else:
-			a_ = c
-			d_ = d
-			return [a_, d_]
-	
-	return [a, d]
+	return [min(a, b, c, d), max(a,b,c,d)]
 
 def overlap(x, y):
-	a = x[0]
-	b = x[1]
-	
-	c = y[0]
-	d = y[1]
-	
-	if (a > d or b < c): 
-		return False
-		
-	return True
+	a, b = min(x, y)
+	c, d = max(x, y)
+	return c < b
 
-
+def overlapable(intervs):
+	for i in range(len(intervs)):
+		for j in range(i+1,len(intervs)):
+			if overlap(intervs[i], intervs[j]):
+				return True
+				
+	return False
+			
 
 def answer(intervals):
 	interv = list()
@@ -137,45 +28,49 @@ def answer(intervals):
 		if i not in interv:
 			interv.append(i)
 
-	n = len(interv)
 	
-	#print()
-	#print("interv", interv)
-	#print("n", n)
-	
-	# transform all t in interv into non overlapping tuples:
-	i = 0
-	while( n > 1 ):
-
-		t = interv[0]
-		u = interv[1]
-		
-		interv.remove(t)
-		interv.remove(u)
-		
-		if (overlap(t, u)):
-			interv.append(reduce_overlapping_intervals(t, u))
-		else:
-			interv.append(reduce_when_disjoint(t, u))
-			
-		interv2 = list()
-		for k in interv:
-			if k not in interv2:
-				interv2.append(k)
-		interv = interv2
+	while (overlapable(interv)):
+		r = list()
 		n = len(interv)
-		
-		#print()
-		#print("interv", interv)
-		#print("n", n)
+		#print("interv y n= ", interv, n)
+		for i in range(n):
+			t = interv[i]
+			for j in range(i+1,n):
+				u = interv[j]
+				if (overlap(t, u)):
+					v = reduce(t, u)
+					if v not in r:
+						r.append(v)
+				else:
+					if u not in r:
+						r.append(u)
 
-	return interv[0][1]-interv[0][0]
+		s = list()
+		for i in r:
+			if i not in s:
+				s.append(i)
+				
+		r = s
+		interv = r
 		
-t = [[1, 2]]
-#t = [[1, 3], [3, 6]]
+	#print(interv)
+	s = 0
+	for i in interv:
+		s = s + i[1] - i[0]
+	return s
+		
+#t = [[1, 2]]
+t = [[1, 3], [3, 6]]
 #t = [[1, 3], [6, 8]]
 #t = [[10, 14], [4, 18], [19, 20], [19, 20], [13, 20]]	
 
-#print(overlap([1,5],[4,9]))
-#print(reduce([1,5],[4,9]))
+#print(overlap([1,8],[4,9]))
+#print(reduce([4,18],[10,20]))
+#
+#  4
+#  -
+#1   5
+#  4      9
+#      -
+#	  8
 print(answer(t))
