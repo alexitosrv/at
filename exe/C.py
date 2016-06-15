@@ -1,5 +1,5 @@
 
-			
+
 def get_neighbors(population, i, j, rows, columns, strength):
 
 	if ( i-1 >= 0 ):
