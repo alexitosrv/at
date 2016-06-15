@@ -1,0 +1,7 @@
+[[10, 14], [4, 18], [19, 20], [13, 20]]
+
+ True False True
+ False True
+ True
+
+0
