@@ -20,19 +20,19 @@ def infect_and_hunt(p, x, y, rows, cols, s):
 
 	if (is_left_infectable):
 		p[y][x-1] = -1
-		infect_and_hunt(p, x-1, y, rows, cols, strength)
+		infect_and_hunt(p, x-1, y, rows, cols, s)
 
 	if (is_right_infectable):
 		p[y][x+1] = -1
-		infect_and_hunt(p, x+1, y, rows, cols, strength)
+		infect_and_hunt(p, x+1, y, rows, cols, s)
 
 	if (is_upper_infectable):
 		p[y-1][x] = -1
-		infect_and_hunt(p, x, y-1, rows, cols, strength)
+		infect_and_hunt(p, x, y-1, rows, cols, s)
 
 	if (is_lower_infectable):
 		p[y+1][x] = -1
-		infect_and_hunt(p, x, y+1, rows, cols, strength)
+		infect_and_hunt(p, x, y+1, rows, cols, s)
 	
 def answer(population, x, y, strength):
 	
@@ -62,10 +62,10 @@ def answer(population, x, y, strength):
 #y = 1 
 #strength = 5 
 
-#population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2], [3, 4, 5, 8, 1], [4, 5, 4, 3, 9]]
-population = [[7, 7, 7, 7, 7], [7, 7, 3, 7, 7], [2, 3, 3, 3, 7], [7, 7, 3, 7, 7], [7, 7, 7, 7, 7]]
-x = 0
-y = 2
+population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2], [3, 4, 5, 8, 1], [4, 5, 4, 3, 9]]
+#population = [[7, 7, 7, 7, 7], [7, 7, 3, 7, 7], [2, 3, 3, 3, 7], [7, 7, 3, 7, 7], [7, 7, 7, 7, 7]]
+x = 2
+y = 1
 strength = 5
 
 #population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2]]
