@@ -9,14 +9,41 @@ def ppp(p):
 		
 def infect_and_hunt(p, x, y, rows, cols, s):
 
-	is_left_infectable  = x-1 >= 0 and x-1 < cols and y >= 0 and y < rows and p[y][x] == -1 and p[y][x-1] != -1 and p[y][x-1] <= s 
-	is_right_infectable = x+1 < cols and x+1 >= 0 and y >= 0 and y < rows and p[y][x] == -1 and p[y][x+1] != -1 and p[y][x+1] <= s 
-	is_upper_infectable = y-1 >= 0 and y-1 < rows and x >= 0 and x < cols and p[y][x] == -1 and p[y-1][x] != -1 and p[y-1][x] <= s 
-	is_lower_infectable = y+1 < rows and y+1 >= 0 and x >= 0 and x < cols and p[y][x] == -1 and p[y+1][x] != -1 and p[y+1][x] <= s 
+	is_cell_infectable = 0 <= p[y][x] and p[y][x] <= strength 
+
+	if (is_cell_infectable):
+		population[y][x] = -1
+		
+
+	is_left_infectable  = x-1 >= 0 and x-1 < cols and \
+							y >= 0 and y < rows and \
+							p[y][x] == -1 and \
+							p[y][x-1] != -1 and \
+							p[y][x-1] <= s 
+
+	is_right_infectable = x+1 < cols and x+1 >= 0 and \
+							y >= 0 and y < rows and \
+							p[y][x] == -1 and \
+							p[y][x+1] != -1 and \
+							p[y][x+1] <= s
+							
+	is_upper_infectable = y-1 >= 0 and y-1 < rows and \
+							x >= 0 and x < cols and \
+							p[y][x] == -1 and \
+							p[y-1][x] != -1 and \
+							p[y-1][x] <= s
+							
+	is_lower_infectable = y+1 < rows and y+1 >= 0 and \
+							x >= 0 and x < cols and \
+							p[y][x] == -1 and \
+							p[y+1][x] != -1 and \
+							p[y+1][x] <= s
 
 	#print()
 	#print()
 	#ppp(p)
+	#print()
+	#print()
 
 	if (is_left_infectable):
 		p[y][x-1] = -1
@@ -33,15 +60,12 @@ def infect_and_hunt(p, x, y, rows, cols, s):
 	if (is_lower_infectable):
 		p[y+1][x] = -1
 		infect_and_hunt(p, x, y+1, rows, cols, s)
-	
+		
+
 def answer(population, x, y, strength):
 	
 	rows = len(population)
 	cols = len(population[0])
-
-	r = population[y][x]
-	if ( 0 <= r and r <= strength ):
-		population[y][x] = -1	
 
 	infect_and_hunt(population, x, y, rows, cols, strength)
 
@@ -62,10 +86,10 @@ def answer(population, x, y, strength):
 #y = 1 
 #strength = 5 
 
-population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2], [3, 4, 5, 8, 1], [4, 5, 4, 3, 9]]
-#population = [[7, 7, 7, 7, 7], [7, 7, 3, 7, 7], [2, 3, 3, 3, 7], [7, 7, 3, 7, 7], [7, 7, 7, 7, 7]]
+#population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2], [3, 4, 5, 8, 1], [4, 5, 4, 3, 9]]
+population = [[7, 7, 7, 7, 7], [7, 7, 3, 7, 7], [2, 3, 3, 3, 7], [7, 7, 3, 7, 7], [7, 7, 7, 7, 7]]
 x = 2
-y = 1
+y = 2
 strength = 5
 
 #population = [[9, 3, 4, 5, 4], [1, 6, 5, 4, 3], [2, 3, 7, 3, 2]]
