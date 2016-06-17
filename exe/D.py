@@ -1,63 +1,53 @@
 import time
 
 
+def defiddle(s, t):
+
+	#return s.replace(t, '')
+	
+	n = len(s)
+	m = len(t)
+	k = s.find(t)
+	i = 0
+	
+	#while k+i<m and k+i<n:
+	while m>=0:
+		print'm',m
+		if s[k:k+m] != t:
+			print'k',k, 'k+m', k+m
+			#yield s[k:k+(m-i+1)]+'|'+s[k+(m-i)+1:].replace(t, '')
+			print't in s[k+m:]', t, s[k+m:]
+			if (k<m and t in s[k+m:]):
+				yield s[k:k+m]+'|'+s[k+m:].replace(t, '')
+		else:
+			yield s.replace(t, '')
+			
+		m=m-1
+
 def ppp(s):
 	for i in s:
 		print i
 
 def answer(chunk, word):
-	s = list()
-	s.set(chunk)
 	m = len(word)
 	n = len(chunk)
-	k = 0
 	
-	while m <= n and k>=0:
-		c = s[k]
-		n = len(c)
-		
-		idx = c.find(word)
-		
-		if idx >= 0:
-			#idx point where it was found for the first time
-			print 'idx:', idx, 'n:', n, 'm:', m
-			for j in range(m):#j: 0 to m, m the length of w 
-				print
-				print 'j:',j
-				if idx + j < n  :
-					print 'original:', c
-					print 'c:', c[:idx+j]+']['+c[idx+j:]
-					print 'suffix string:',c[:idx+j]
-					print 'string to replace: ',c[idx+j:]
-					d = c[:idx+j]+c[idx+j:].replace(word, '')
-					print 'result:', d
+	#while True:
+	for i in defiddle(chunk, word):
+		print i
+		time.sleep(5)
 
-					if d != chunk and d not in s:
-						s.append(d)
-						k = len(s)
-						
-					if n == m:
-						n, m = -1, 0
-						break
 
-		print
-		print
-		print 's:'
-		ppp(s)
-		
-		time.sleep(10)
-		k = k -1
-
-c = 'lolol'
-w = 'lol'
+#c = 'lolol'
+#w = 'lol'
 	
 #c = 'lololololo'
 #w = 'lol'
 #
-#c = 'goodgooogoogfogoood'
-#w = 'goo'
+c = 'goodgooogoogfogoood'
+w = 'goo'
 #
 #c = 'aabb'
 #w = 'ab'
-
 answer(c, w)
+#print(answer(c, w))
