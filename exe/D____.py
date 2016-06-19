@@ -72,8 +72,8 @@ def defiddle(s, t):
 #w ='b'
 #c = 'aabb'
 #w = 'ab'
-#c = 'lololololo'
-#w = 'lol'
+# = 'lololololo'
+# = 'lol'
 #c = 'ab____ab____ab'
 #w = 'ab'
 #c = 'lolol'
@@ -81,7 +81,7 @@ def defiddle(s, t):
 #c = 'abc'
 #w = 'abc'
 	
-c = 'lololololo'
+c = 'lololololol'
 w = 'lol'
 
 #c = 'goodgooogoogfogoood'

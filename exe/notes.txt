@@ -1,0 +1,14 @@
+
+in java 
+
+size() is for collections
+
+
+length() is for strings
+
+to concatenate stringbuilders is using .append()
+
+en arraylist para meter m'as valores es con .add()
+
+
+.contains es para mirar si un arraylist contiene un cierto objeto
