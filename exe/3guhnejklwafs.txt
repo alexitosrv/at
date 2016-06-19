@@ -1,0 +1,16 @@
+			print 'i',i
+			s = list()
+			print
+			print 'idx          ',range(n)
+			print 'k', k, 'positions', positions[:k], positions[k:]
+			h = 0
+			while h<n:
+				if h not in positions[k:]:
+					s.append(c[h])
+					
+				h = h+1
+			print 's=',''.join(s)
+			k=k+1
+			while(k<len(positions)-1 and positions[k] != positions[k+1]):
+				k=k+1
+			#print 'k',k
