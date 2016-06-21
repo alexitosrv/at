@@ -1,82 +1,56 @@
-
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 public class E {   
     public static int answer(int[] heights) { 
 
         int n = heights.length;
+		int z = -1;
+		int w = 0;
 		int i = 0;
-		int z = 0;
-		int partial = 1;
-
-		int left=0;
-		int right=0;
+		int k;
+		int min;
+		int d2;
 		
-		while(i<n-1){
-			int d2 = heights[i]-heights[i+1];
-			
-			System.out.println("d2 = "+d2);
+		ArrayList<Integer> left_wall_height_candidates = new ArrayList<Integer>();
+		ArrayDeque<Integer> right_wall_height_candidates = new ArrayDeque<Integer>();
 
-			if (d2<0){
-				if (left>0){
-					do{
-						right=Math.abs(d2);
-						z = z + Math.min(left, right)*partial;
-						i++;
-						partial++;
-						if (i<n-1){
-							d2 = heights[i]-heights[i+1];
-							System.out.println("d2 = "+d2);
-						}
-					}while(d2<0 && i<n-1);
-				}
-			}
+		while(i<n){
+		
+			left_wall_height_candidates.add(heights[i]);
 
-			if (d2==0){
-				partial++;
-			}
-			
-			if (d2>0){
-				int j = i;
-				int w = 0;
-				int d3 = 0;
-				do{
-					if (j<n-1){
-						d3 = heights[i]-heights[j+1];
-						if(d3>0){
-							w = w + d3;
-							System.out.println("d3 = "+d3);
-						}else{
-							break;
-						}
-					}
-					j++;
-				}while(d3>0 && j<n-1);
-				
-				if (d3<0){
-					z = z + w;
-					i = j;
-				}else{
-					left = d2;
-				}
-				partial = 1;
-			}
-			
+			right_wall_height_candidates.push(heights[i]);
+
 			i++;
+
+		}
+
+		System.out.println(left_wall_height_candidates);
+		System.out.println(right_wall_height_candidates);
+		
+		for (i=0; i<n;i++){
+			System.out.println(left_wall_height_candidates.get(left_wall_height_candidates.size()-1));
+			left_wall_height_candidates.remove();
+			
+			System.out.println(right_wall_height_candidates.pop());
 		}
 		
 		return z;
+		
+		
     }
 	
 	
 	public static void main(String[] args){
 		
+		int[] h = new int[] {6,1,1,2,3};
 		//int[] h = new int[] {1,4,2,5,1,2,3};
 		//int[] h = new int[] {1, 2, 3, 2, 1};
 //		int[] h = new int[] {1,2,3,4,3,2,1,5};
 		//int[] h = new int[] {2, 5, 1, 2, 3, 4, 7, 7, 6};
 		//int[] h = new int[] {2, 5, 1, 3, 1, 2, 1, 7, 7, 6};
 		//int[] h = new int[] {2, 7, 2, 7, 4, 7, 1, 7, 3, 7};
-		int[] h = new int[] {6, 7, 7, 4, 3, 2, 1, 5, 2}; // *
+		//int[] h = new int[] {6, 7, 7, 4, 3, 2, 1, 5, 2}; // *
 		//int[] h = new int[] {2, 5, 1, 2, 3, 4, 7, 7, 6, 2, 7, 1, 2, 3, 4, 5, 5, 4}; //*
 		System.out.println(answer(h));
 	}
