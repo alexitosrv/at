@@ -1,0 +1,8 @@
+candidates
+[lololololo, olololo, loololo, loloolo, lololoo]
+candidates
+[oolo, oolo, looo, oolo, oloo]
+earliest_candidate
+looo
+shortest_candidate
+4
