@@ -1,85 +1,73 @@
 
 
-public class E {   
+public class E_ {   
+
     public static int answer(int[] heights) { 
 
         int n = heights.length;
 		int z = 0;
-		int i = 0;
 		int j;
 		int k;
-		int min;
-		int d2;
-		
-		while(i<n-1){
-			j = i+1;
-			d2 = heights[i]-heights[j];
-			
-			System.out.println("d2 = "+d2);
-			
-			if (d2 < 0){
-				// we must keep the trend otherwise we stop
-				while (j<n-1 && d2<=0){
-					d2 = heights[j]-heights[j+1];
-					System.out.println("d2 = "+d2);
-					j++;
-				}
-				
-				if (j<n){
-					if (d2>0){
-						// backtrack j all the way towards i,
-						// and calculate the min betweek h[k] and h[j] to determine the height of the water
-						min = Math.min(heights[i],heights[j]);
-						System.out.println("i "+i);
-						System.out.println("j "+j);
-						System.out.println("heights[i] "+heights[i]);
-						System.out.println("heights[j] "+heights[j]);
-						System.out.println("min es "+min);
-						k = j;
-						while(k>i){ //  && min>=heights[k]
-							System.out.println("entramos al otro ciclo");
-							z += min-heights[k];
-							k--;
-						}
-					}
-				}
-			}
-			
-			if (d2 > 0){
-				System.out.println("we must keep the trend otherwise we stop");
-				while (j<n-1 && d2>=0){
-					d2 = heights[j]-heights[j+1];
-					System.out.println("d2= "+d2);
-					j++;
-				}
+		int left = -Integer.MIN_VALUE;
+		int right = -Integer.MIN_VALUE;
+		int i = 0;
 
-				System.out.println(" changed at j = "+j);
-				// it means we changed trend
+		while(i<n){
+			System.out.println("i= "+i);
+			
+			if (left < heights[i]){ 
+				System.out.println("this means left compared with current height is shorter");
+				left = heights[i];
+			}else{
+				System.out.println("left is greater or equal than heights[i] = "+left);
+				
+				j=i;
+				System.out.println("  j= "+j);
+				while(j < n && left > heights[j]){
+					System.out.println("     j<n and left>heights[j], j= "+j);
+					j++;
+				}
+				System.out.println("     j= "+j);
+				
+				//j--;
+				k=j;
 				if (j<n){
-						// backtrack j all the way towards i
-						// and calculate the min betweek h[k] and h[j] to determine the height of the water
-						min = Math.min(heights[i],heights[j]);
-						System.out.println("i "+i);
-						System.out.println("j "+j);
-						System.out.println("heights[i] "+heights[i]);
-						System.out.println("heights[j] "+heights[j]);
-						System.out.println("min es "+min);							
-						k = j;
-						while(k>i){
-							System.out.println("min - h[k]"+Integer.toString(min-heights[k]));
-							z += min-heights[k];
-							k--;
+					System.out.println("     j<n means there is more data");
+					System.out.println("     i= "+i);
+					System.out.println("     j= "+j);
+					System.out.println("     k= "+k);
+					while(j > i){
+						System.out.println("     j>i means there I can go back again");
+					
+						if (right < heights[j]){
+							right = heights[j];
 						}
+
+						j--;
 					}
-					else{ // it means d2 < 0
-						
+					System.out.println("     right = "+right);
+					
+					int m = Math.min(left, right);
+					while(j<n && m > heights[j]){
+						System.out.println("     j= "+j);
+						System.out.println("     delta= "+Integer.toString(m-heights[j]));
+						System.out.println("     z= "+z);
+						z = z + m - heights[j];
+						System.out.println("     new z= "+z);
+						j ++;
 					}
+					
+					right = -Integer.MIN_VALUE;
+					left = -Integer.MIN_VALUE;
+					i=k;
+				}
+				else{
+					System.out.println("   j>=n ");
+				}
+				System.out.println("  i= "+i);
+				
 			}
-			
-			if (d2 == 0){
-			}
-			
-			i = j;
+			i++;
 		}
 		return z;
 		
@@ -88,7 +76,7 @@ public class E {
 	
 	public static void main(String[] args){
 		
-		int[] h = new int[] {6,1,1,2,3};
+		int[] h = new int[] {3,2,3};
 		//int[] h = new int[] {1,4,2,5,1,2,3};
 		//int[] h = new int[] {1, 2, 3, 2, 1};
 //		int[] h = new int[] {1,2,3,4,3,2,1,5};

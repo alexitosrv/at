@@ -1,0 +1,22 @@
+let's solve a smaller/simpler problem
+
+idea
+
+
+define a function that is able to find the intervals
+
+
+ 
+   |<----  x ----->|
+  
+  
+  
+     
+        v
+  
+  [ x b c d w q ] 
+  
+  
+  the goal is to set a current left and right values to compare
+  
+  
