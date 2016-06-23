@@ -49,7 +49,6 @@ public class E_ {
 					j ++;
 				}
 				
-				right = -Integer.MIN_VALUE;
 				left = -Integer.MIN_VALUE;
 				i = i_rig;
 				continue;
