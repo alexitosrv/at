@@ -1,10 +1,15 @@
 //package templates;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.Console;
+
+
+import java.io.FileWriter;
 import java.io.IOException;
+
+
+import java.io.File;
 import java.util.Scanner;
+import java.io.IOException;
 
 public class SimpleInputs {
 	
@@ -33,8 +38,7 @@ public class SimpleInputs {
             e.printStackTrace();
         }
 		
-		Console console = System.console();
-		String input = console.readLine("write:");
+		String input = System.console().readLine("write:");
 		
 		System.out.println("You wrote" + input);
 	}
