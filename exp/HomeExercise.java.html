@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Exported from Notepad++</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #F1F2F3;
+}
+.sc0 {
+}
+.sc2 {
+	color: #57A64A;
+}
+.sc4 {
+	color: #A6CEA8;
+}
+.sc5 {
+	color: #559CD6;
+}
+.sc6 {
+	color: #D69D85;
+}
+.sc10 {
+	color: #9B9B9B;
+}
+.sc11 {
+}
+.sc16 {
+	color: #559CD6;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #1E1E1E; "><span class="sc0">
+</span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">java</span><span class="sc10">.</span><span class="sc11">util</span><span class="sc10">.</span><span class="sc11">Arrays</span><span class="sc10">;</span><span class="sc0">
+
+</span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">class</span><span class="sc0"> </span><span class="sc11">HomeExercise</span><span class="sc10">{</span><span class="sc0">
+    
+    </span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">static</span><span class="sc0"> </span><span class="sc16">void</span><span class="sc0"> </span><span class="sc11">main</span><span class="sc10">(</span><span class="sc11">String</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">args</span><span class="sc10">){</span><span class="sc0">
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc10">[]{</span><span class="sc4">3</span><span class="sc10">,</span><span class="sc4">9</span><span class="sc10">,</span><span class="sc4">11</span><span class="sc10">,</span><span class="sc4">17</span><span class="sc10">,</span><span class="sc4">19</span><span class="sc10">};</span><span class="sc0">
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">12</span><span class="sc10">;</span><span class="sc0">
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">3</span><span class="sc10">;</span><span class="sc0">
+        
+        </span><span class="sc11">System</span><span class="sc10">.</span><span class="sc11">out</span><span class="sc10">.</span><span class="sc11">println</span><span class="sc10">(</span><span class="sc6">"Input array A = "</span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc11">pp</span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc11">System</span><span class="sc10">.</span><span class="sc11">out</span><span class="sc10">.</span><span class="sc11">println</span><span class="sc10">(</span><span class="sc11">String</span><span class="sc10">.</span><span class="sc11">format</span><span class="sc10">(</span><span class="sc6">"V = %1$d, C = %1$d"</span><span class="sc10">,</span><span class="sc11">V</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc10">));</span><span class="sc0">
+        
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">R</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">getNearestValues</span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc10">);</span><span class="sc0">
+        
+        </span><span class="sc11">System</span><span class="sc10">.</span><span class="sc11">out</span><span class="sc10">.</span><span class="sc11">println</span><span class="sc10">(</span><span class="sc6">"Result ="</span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc11">pp</span><span class="sc10">(</span><span class="sc11">R</span><span class="sc10">);</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+    
+    </span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">static</span><span class="sc0"> </span><span class="sc16">void</span><span class="sc0"> </span><span class="sc11">combineOrderedSubArrays</span><span class="sc10">(</span><span class="sc16">int</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">aF</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">aT</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">bF</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">bT</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">R</span><span class="sc10">){</span><span class="sc0">
+        </span><span class="sc2">// A is combined from subarrays A[aF, aT) and A[bF, bt)
+</span><span class="sc0">        </span><span class="sc2">// actually, aT = bF = idx, but the function is clearer when explicit
+</span><span class="sc0">        </span><span class="sc2">// given A is sorted, the first subarray will be traversed in reverse:
+</span><span class="sc0">    
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">=</span><span class="sc11">aT</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">=</span><span class="sc11">bF</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">=</span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0">
+        </span><span class="sc5">while</span><span class="sc10">(</span><span class="sc11">i</span><span class="sc10">&gt;=</span><span class="sc11">aF</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">&lt;</span><span class="sc11">bT</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">){</span><span class="sc0">
+            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">V</span><span class="sc10">-</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">]-</span><span class="sc11">V</span><span class="sc10">)</span><span class="sc0">
+                </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">k</span><span class="sc10">++]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">--];</span><span class="sc0">
+            </span><span class="sc5">else</span><span class="sc0">
+                </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">k</span><span class="sc10">++]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">++];</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+        
+        </span><span class="sc5">if</span><span class="sc10">(</span><span class="sc11">i</span><span class="sc10">&lt;</span><span class="sc11">aF</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">){</span><span class="sc0">
+            </span><span class="sc5">while</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">j</span><span class="sc10">&lt;</span><span class="sc11">bT</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">)</span><span class="sc0">
+                </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">k</span><span class="sc10">++]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">++];</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+        
+        </span><span class="sc5">if</span><span class="sc10">(</span><span class="sc11">j</span><span class="sc10">&gt;=</span><span class="sc11">bT</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">){</span><span class="sc0">
+            </span><span class="sc5">while</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">i</span><span class="sc10">&gt;=</span><span class="sc11">aF</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">)</span><span class="sc0">
+                </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">k</span><span class="sc10">++]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">i</span><span class="sc10">--];</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">   
+    
+    </span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">static</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">refineIndex</span><span class="sc10">(</span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">){</span><span class="sc0">
+        </span><span class="sc2">// the goal is to get an index actually closest to V
+</span><span class="sc0">        </span><span class="sc2">// based on the estimated position by binarySearch:
+</span><span class="sc0">        </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">){</span><span class="sc0"> 
+            </span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">-</span><span class="sc0"> </span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+            </span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc10">&lt;</span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc0"> </span><span class="sc10">?</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">;</span><span class="sc0">
+            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">idx</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">&gt;</span><span class="sc4">0</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">-</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">idx</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">&lt;</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">idx</span><span class="sc10">]-</span><span class="sc11">V</span><span class="sc10">)</span><span class="sc0">
+                </span><span class="sc11">idx</span><span class="sc10">--;</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+        </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+        
+    </span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">static</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">getNearestValues</span><span class="sc10">(</span><span class="sc16">int</span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc10">){</span><span class="sc0">
+        </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0">
+        </span><span class="sc16">int</span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">R</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">new</span><span class="sc0"> </span><span class="sc16">int</span><span class="sc10">[</span><span class="sc11">C</span><span class="sc10">];</span><span class="sc0">
+        
+        </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc4">0</span><span class="sc10">]&lt;</span><span class="sc11">V</span><span class="sc0"> </span><span class="sc10">&amp;&amp;</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">&lt;</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">]){</span><span class="sc0">
+            
+            </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">b</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">Arrays</span><span class="sc10">.</span><span class="sc11">binarySearch</span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">);</span><span class="sc0">
+            </span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">refineIndex</span><span class="sc10">(</span><span class="sc11">b</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">);</span><span class="sc0">
+            </span><span class="sc11">combineOrderedSubArrays</span><span class="sc10">(</span><span class="sc11">A</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">idx</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">V</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">C</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">R</span><span class="sc10">);</span><span class="sc0">
+            
+        </span><span class="sc10">}</span><span class="sc5">else</span><span class="sc0">
+            </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">V</span><span class="sc10">&lt;=</span><span class="sc11">A</span><span class="sc10">[</span><span class="sc4">0</span><span class="sc10">])</span><span class="sc0">
+                </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">j</span><span class="sc10">=</span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">++)</span><span class="sc0">
+                    </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">];</span><span class="sc0">
+            </span><span class="sc5">else</span><span class="sc0"> 
+                </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">j</span><span class="sc10">=</span><span class="sc4">0</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">&lt;</span><span class="sc11">C</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc11">j</span><span class="sc10">++)</span><span class="sc0">
+                    </span><span class="sc11">R</span><span class="sc10">[</span><span class="sc11">j</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">A</span><span class="sc10">[</span><span class="sc11">A</span><span class="sc10">.</span><span class="sc11">length</span><span class="sc10">-</span><span class="sc4">1</span><span class="sc10">-</span><span class="sc11">j</span><span class="sc10">];</span><span class="sc0">
+            
+        </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">R</span><span class="sc10">;</span><span class="sc0">
+    </span><span class="sc10">}</span><span class="sc0">
+
+    </span><span class="sc16">public</span><span class="sc0"> </span><span class="sc16">static</span><span class="sc0"> </span><span class="sc16">void</span><span class="sc0"> </span><span class="sc11">pp</span><span class="sc10">(</span><span class="sc16">int</span><span class="sc0"> </span><span class="sc10">[]</span><span class="sc0"> </span><span class="sc11">a</span><span class="sc10">){</span><span class="sc0">
+        </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc16">int</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc0"> </span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">a</span><span class="sc10">){</span><span class="sc0">
+            </span><span class="sc11">System</span><span class="sc10">.</span><span class="sc11">out</span><span class="sc10">.</span><span class="sc11">print</span><span class="sc10">(</span><span class="sc11">i</span><span class="sc10">+</span><span class="sc6">", "</span><span class="sc10">);</span><span class="sc0">
+        </span><span class="sc10">}</span><span class="sc0">
+        </span><span class="sc11">System</span><span class="sc10">.</span><span class="sc11">out</span><span class="sc10">.</span><span class="sc11">println</span><span class="sc10">();</span><span class="sc0">
+        
+    </span><span class="sc10">}</span><span class="sc0">
+
+</span><span class="sc10">}</span></div></body>
+</html>
