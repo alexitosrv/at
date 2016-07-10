@@ -20,10 +20,11 @@ def answer(str_S):
 		return m[n]
 			
 	def binary_search_leaping_twice(low, high, s, parity_correction):
-		while low <= high:
+		while low < high:
 			n = low + (high - low)//2
 			
-			n = n-1 if n%2 == parity_correction else n
+			n = n+1 if n%2 == parity_correction else n
+			#n += parity_correction != n & 1
 			#print 'low, n, high', low, n, high
 
 			r = R(n)
@@ -32,9 +33,9 @@ def answer(str_S):
 				return n
 			else:
 				if r < s:
-					low = n+2
+					low = n+1
 				else:
-					high = n-2
+					high = n-1
 			
 		return -1
 		
@@ -51,7 +52,7 @@ def answer(str_S):
 	else:
 		return str(b)
 
-	return 'None'
+	return None
 	
 
 	
