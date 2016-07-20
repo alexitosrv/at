@@ -25,7 +25,7 @@ def bs(low, high, S, parity):
 		n = low + ((high - low) // 2)
 		
 		current_parity = n % 2
-		parity_changes = parity != current_parity
+		parity_changes = parity != current_parity # el problema era que con este cambio de paridad cambia la condici'on de terminaci'on y en las siguientes iteraciones puede resultar que no se evaluan correctamente los demas puntos
 		
 		n = n + (1 if parity_changes else 0)
 

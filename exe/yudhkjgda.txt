@@ -1,0 +1,65 @@
+2,3,2
+x,N,y
+
+
+1,2,3
+1,3,2 x
+2,1,3
+3,1,2
+2,3,1 x
+3,2,1
+
+
+. generate permutations
+  
+  count arrays
+  put N in the position x-1
+  
+  now from the set of n-1 
+  
+  take x
+ 
+. count visible from left
+ 
+. count visible from right
+
+
+
+
+1,2,3,4
+
+Inputs:
+    (int) x = 1
+    (int) y = 2
+    (int) N = 6
+	
+1,6,2
+x,N,y
+
+
+x! * (N-y)! * y!
+
+1,2,3,4,5,6
+
+6,1,2,3,4,5
+6,1,2,4,3,5
+6,1,3,2,4,5
+6,1,4,2,3,5
+6,1,3,4,2,5
+6,1,4,3,2,5
+6,...,5
+
+4,5,6, 
+
+
+x, N-y, y
+
+
+
+
+x = 2
+y = 2
+N = 3
+
+
+3

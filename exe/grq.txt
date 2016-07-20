@@ -1,0 +1,81 @@
+
+
+n=40
+
+x = 4
+
+y = 23
+
+
+10,20,30,40,...,1
+
+10,...,20,...,30,...,40,...,22,..3,2,1
+10,...,20,...,30,...,40,...,22,..3,2,1
+10,...,20,...,30,23,24,25,26,27,28,29,40,...,22,..3,2,1
+
+algorithm:
+
+
+generate valid candidate arrays as follows:
+
+put the n values  somewhere
+
+|  n  |
+| n-1 |
+| n-2 |
+|     |
+| ... |
+|     |
+|  3  |
+|  2  |
+|  1  |
+
+create valid permutations where from the left one can see x rabbits and y rabbits from the right:
+
+that is 
+
+ pop n
+ 
+
+	select x-1 decreasing values and put those to the left of n
+
+	select y-1 decreasing values and put those to the right of n
+
+	put the rest between and count those positions
+
+repeat until we are done
+
+n=15
+vs=15,14,13,12,11,10,9,8,7,6,5,4,3,2,1
+x=3,
+y=5
+
+        v
+	  
+       15
+	   
+    14   12
+	
+13          11
+
+               10
+                    9 
+                                                        8 
+                          7 
+                                6  
+                                    5    
+                                        4    
+                                            3    
+                                                2     
+                                                   1   
+												   
+												   
+
+												   
+												   											   
+ n / 2      n / 2
+ ----------------
+   x          y 
+ 
+ 
+   
