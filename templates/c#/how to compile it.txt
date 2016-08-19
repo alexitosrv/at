@@ -1,0 +1,9 @@
+
+
+REM first, start by using Visual Studio Tools to have the csc.exe in the path, then execute:
+
+REM the file does not need to be named as the classes inside of it
+
+csc file.cs
+
+

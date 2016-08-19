@@ -35,12 +35,25 @@ def is_valid(p,x,n,y):
 	return True
 	
 
-def generate_permutations(n):
-		
-	candidates = list(range(n-1))
 	
-	c = candidates.pop()
-	
+def generate_permutations(a):
+	def copy_list_without_i(a,i):
+		m = []
+		for j in a:
+			if i!=j:
+				m.append(j)
+		return m
+
+	if len(a) == 2:
+		yield [a[0], a[1]]
+		yield [a[1], a[0]]
+	else:
+		for i in a:
+			m = copy_list_without_i(a,i)
+			
+			for k in generate_permutations(m):
+				k.insert(0, i)
+				yield k	
 	
 
 
