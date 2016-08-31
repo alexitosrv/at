@@ -1,9 +1,9 @@
 ﻿
 
-
-
 “Who are the customers for your product and what do they like or not like about your company’s product/service?” Customer Obsession
 Currently, my users. Mostly, they love to be served by me as I usually go the extra mile until I can solve the problem for them. Be it a problematic installation, a custom script, or a hardware problem.
+
+yes, one of my largests project / accomplishment was improving the bandwidth and finding ways to cut costs while also getting more for our money, such as switching away from an ISP to another local loop provider and negotiate and helped to renegotiate with other providers like Canon for the uniflow solution, and also with Dell on local discounts leveraged on the fact that even when we can buy globally, it would be more beneficial if the purchase was local (in several aspects, as the company gets the items faster, we build a better purchase history with the provider)
 
 Tell me about the last time you learned something new about technology…..Learn and be Curious
 All the time. Recently I implemented Selenium features to automate part of the way I usually have to go when a user needs to have USB unblock via DLP And also for some elementary things like opening vSphere, I created an AutoIt script to streamline the access to the main page of the virtual environment. It's specially handy when we are trying to solve more difficult problems there, so I can concentrate better in the essential stuff.
@@ -13,6 +13,9 @@ I decided it was the best to get rid and do a sale of a residual inventory of mo
 
 “Have you ever had the chance to alter or create a process that improved workflow?” : Invent and Simplify
 Many times! I created a from the scratch web application to lend items to the people at the office. This was a huge relief.
+To be timeless and produce the highest possible quality you have to go deep, understand the problem you are trying to solve and solve it once and for all.
+
+On the innovation side, I went to a training by my own account on Design Thinking and then we started to try to capture a systematic approach to innovation. We created a workgroup for support innovation initiatives and from there evolved several interesting projects for the company. My rol in the workgroup is to mentor the other developers in technical aspects of the infrastructure and to handle their requirements to help them to reach the established goals.
 
 “Tell me more about your most recent project” Dive Deep (in other words, don’t just give a top level view—Amazon interviewers will want to hear all the nitty gritty. Why did you choose a particular technology? What were the tradeoffs you considered?)
 The asset management.
